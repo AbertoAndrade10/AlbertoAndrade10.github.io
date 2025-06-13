@@ -1,0 +1,123 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import InterestCard from "../components/InterestCard.astro";
+import TechnologyCard from "../components/TechnologyCard.astro";
+
+const pageTitle = "Alberto Andrade Ortiz | Sobre mí";
+
+// Datos para los intereses
+const interests = [
+  {
+    title: "Especialización",
+    description:
+      "Profundizar y especializarme en tecnologías como Spring Boot y Angular.",
+  },
+  {
+    title: "Aprendizaje",
+    description:
+      "Aprender nuevas herramientas y frameworks del ecosistema Java y frontend.",
+  },
+  {
+    title: "Proyectos reales",
+    description:
+      "Trabajar en proyectos reales del sector con desafíos técnicos.",
+  },
+  {
+    title: "Diseño de software",
+    description:
+      "Mejorar continuamente mis habilidades de diseño de software y arquitectura.",
+  },
+  {
+    title: "Metodologías ágiles",
+    description:
+      "Adoptar buenas prácticas de desarrollo y metodologías ágiles.",
+  },
+];
+
+// Datos para las tecnologías
+const technologies = [
+  { name: "Spring Boot", iconSrc: "/images/springboot.jpg" },
+  { name: "Angular", iconSrc: "/images/angular.jpg" },
+  { name: "MySQL", iconSrc: "/images/mysql.jpg" },
+  { name: "MongoDB", iconSrc: "/images/mongo-icon.png" },
+  { name: "Docker", iconSrc: "/images/docker.jpg" },
+  { name: "GitHub", iconSrc: "/images/github.jpg" },
+  { name: "GitLab", iconSrc: "/images/gitlab.jpg" },
+];
+---
+
+<BaseLayout title={pageTitle}>
+  <section class="container mx-auto px-4 py-8">
+    <!-- Mi experiencia personal -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-800 mb-6">
+        Mi experiencia personal
+      </h2>
+      <p class="text-xl text-gray-700 leading-relaxed">
+        Soy un Desarrollador con un enfoque orientado al backend, con
+        experiencia en el desarrollo de aplicaciones utilizando
+        <strong>Spring Boot</strong> y <strong>Angular</strong>. He trabajado en
+        proyectos basados en
+        <strong>arquitectura de microservicios</strong>, implementando seguridad
+        basada en roles con
+        <strong>JWT</strong>, persistencia de datos con <strong>MySQL</strong>, <strong
+          >MongoDB</strong
+        >
+        y contenedores mediante
+        <strong>Docker</strong>. También he utilizado <strong
+          >API Gateway</strong
+        > y desarrollado
+        <strong>REST APIs</strong> siguiendo buenas prácticas.
+      </p>
+      <p class="text-xl text-gray-700 leading-relaxed mt-4">
+        En la parte frontend, me he encargado de construir interfaces visuales
+        con
+        <strong>Angular</strong> y <strong>TailwindCSS</strong>, creando
+        servicios, rutas, guards e interceptores para asegurar un flujo de
+        navegación y autenticación sólido dentro de la aplicación.
+      </p>
+
+      <p class="text-xl text-gray-700 leading-relaxed mt-4">
+        Además, cuento con formación en <strong
+          >Administración de Sistemas Informáticos en Red (ASIR)</strong
+        >, donde he adquirido habilidades en la gestión de sistemas operativos
+        como <strong>Windows Server</strong>, así como en la configuración y
+        mantenimiento de redes empresariales. He trabajado en la implementación
+        de soluciones de <strong>ciberseguridad</strong>, incluyendo firewalls y
+        sistemas de detección de intrusiones, y he automatizado tareas
+        administrativas mediante scripts en <strong>Bash</strong> y <strong
+          >PowerShell</strong
+        >. Esta experiencia me permite abordar proyectos desde una perspectiva
+        integral, asegurando tanto el desarrollo como la infraestructura
+        necesaria para su correcto funcionamiento.
+      </p>
+    </section>
+
+    <!-- Intereses -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-800 mb-6">Intereses</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {
+          interests.map((interest) => (
+            <InterestCard
+              title={interest.title}
+              description={interest.description}
+            />
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Tecnologías -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-800 mb-6">Tecnologías</h2>
+      <div class="flex flex-wrap gap-6">
+        {
+          technologies.map((tech) => (
+            <TechnologyCard name={tech.name} iconSrc={tech.iconSrc} />
+          ))
+        }
+      </div>
+    </section>
+  </section>
+</BaseLayout>

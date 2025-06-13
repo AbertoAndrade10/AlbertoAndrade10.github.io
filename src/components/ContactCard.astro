@@ -1,0 +1,33 @@
+---
+// components/ContactCard.astro
+const { iconSrc, title, description, buttonText, buttonClass = "", buttonLink = "" } = Astro.props;
+---
+
+<div class="bg-white p-6 rounded-lg shadow-md text-center">
+  <img src={iconSrc} alt={title} class="w-16 h-16 mx-auto mb-4" />
+  <h3 class="text-xl font-semibold text-gray-800">{title}</h3>
+  <p class="text-gray-600 mt-2">{description}</p>
+
+  <!-- Botón con enlace -->
+  {
+    buttonLink
+      ? (
+        <a
+          href={buttonLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-4 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition duration-300 inline-block"
+        >
+          {buttonText}
+        </a>
+      )
+      : (
+        <!-- Botón sin enlace -->
+        <button
+          class={`mt-4 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition duration-300 ${buttonClass}`}
+        >
+          {buttonText}
+        </button>
+      )
+  }
+</div>

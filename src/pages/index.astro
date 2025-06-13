@@ -1,0 +1,186 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ExperienceCard from "../components/ExperienceCard.astro";
+import EducationCard from "../components/EducationCard.astro";
+import LanguageCard from "../components/LanguageCard.astro";
+
+const pageTitle = "Alberto Andrade Ortiz";
+
+// Datos para la experiencia laboral
+const experiences = [
+  {
+    title: "Prácticas en empresa – Insinno España SL",
+    items: [
+      "Microservicios con Spring Boot",
+      "API REST con Spring Boot",
+      "Servicios con Angular",
+      "Automatización con Python nativo",
+      "Uso de GitHub y GitLab",
+    ],
+  },
+  {
+    title: "Prácticas en empresa – App Informática",
+    items: [
+      "Montaje y mantenimiento de sistemas informáticos",
+      "Asesoramiento a clientes",
+    ],
+  },
+];
+
+// Datos para la formación académica
+const educations = [
+  {
+    title: "Tokio School – Desarrollo de Aplicaciones Web",
+    details: [
+      "Programación Java",
+      "Spring Boot Framework.",
+      "Programación JavaScript",
+      "Programación TypeScript",
+      "Angular Framework.",
+    ],
+  },
+  {
+    title: "Cedeco – Administración de Servidores y Seguridad Avanzada en Red",
+    details: [
+      "Gestión y Administración de Sistemas Operativos",
+      "Seguridad Informática",
+      "Redes y Comunicaciones",
+      "Automatización y Scripts de Administración",
+    ],
+  },
+  {
+    title: "Cedeco – Sistemas Informáticos y Redes",
+    details: ["Montaje y mantenimiento de equipos", "Redes básicas"],
+  },
+  {
+    title: "IES Murillo",
+    details: "Educación Secundaria Obligatoria",
+  },
+];
+
+// Datos para los idiomas
+const languages = [
+  { language: "Castellano", level: "Nativo" },
+  { language: "Inglés", level: "Nivel B1" },
+];
+---
+
+<BaseLayout title={pageTitle}>
+  <section class="container mx-auto px-4 py-8">
+    <!-- Presentación -->
+    <div
+      class="flex flex-col md:flex-row items-center md:items-start justify-between gap-8 mb-12"
+    >
+      <div class="md:w-1/3 flex justify-center">
+        <div
+          class="w-48 h-48 bg-no-repeat rounded-full shadow-lg transition-transform duration-300 hover:scale-105"
+          style="background-image: url('/images/foto_carnet.jpg'); background-size: 99%; background-position: 100% 15%;"
+          aria-label="Foto de Alberto Andrade Ortiz"
+        >
+        </div>
+      </div>
+      <div class="md:w-2/3 text-center md:text-left">
+        <h1 class="text-3xl font-bold text-gray-800">Alberto Andrade Ortiz</h1>
+        <p class="text-xl text-gray-600 mt-2">
+          <strong>Desarrollador Web</strong>
+        </p>
+        <br />
+        <p class="text-xl text-gray-600 mt-2">
+          <strong>Teléfono:</strong> +34 667381410
+        </p>
+        <p class="text-xl text-gray-600 mt-2">
+          <strong>Email: </strong>albertoandradeortiz910@gmail.com
+        </p>
+      </div>
+    </div>
+
+    <!-- Experiencia Laboral -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6 text-indigo-600"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+          ></path>
+        </svg>
+        Experiencia Laboral
+      </h2>
+      <hr class="border-gray-300 mb-4" />
+      <div class="space-y-6">
+        {
+          experiences.map((exp) => (
+            <ExperienceCard title={exp.title} items={exp.items} />
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Formación Académica -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6 text-indigo-600"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+          ></path>
+        </svg>
+        Formación Académica
+      </h2>
+      <hr class="border-gray-300 mb-4" />
+      <div class="space-y-6">
+        {
+          educations.map((edu) => (
+            <EducationCard title={edu.title} details={edu.details} />
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Idiomas -->
+    <section>
+      <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6 text-indigo-600"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"
+          ></path>
+        </svg>
+        Idiomas
+      </h2>
+      <hr class="border-gray-300 mb-4" />
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {
+          languages.map((lang) => (
+            <LanguageCard language={lang.language} level={lang.level} />
+          ))
+        }
+      </div>
+    </section>
+    <br />
+    <br />
+  </section>
+</BaseLayout>

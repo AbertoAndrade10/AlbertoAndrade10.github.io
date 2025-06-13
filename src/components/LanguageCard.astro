@@ -1,0 +1,24 @@
+---
+// src/components/LanguageCard.astro
+const { language, level } = Astro.props;
+---
+
+<div
+  class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
+>
+  <h3 class="text-lg font-semibold text-gray-800 flex items-center gap-2">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-5 w-5 text-indigo-600"
+      viewBox="0 0 20 20"
+      fill="currentColor"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.592-.945-1.305-1.168-2.124-.222-.816-.492-1.583-.806-2.298C13.486 3.1 12.386 2.553 12.395 2.553z"
+        clip-rule="evenodd"></path>
+    </svg>
+    {language}
+  </h3>
+  <p class="text-gray-600 mt-2">{level}</p>
+</div>

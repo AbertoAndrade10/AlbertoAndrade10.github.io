@@ -1,0 +1,26 @@
+---
+// Modal.astro
+const { isOpen, onClose, description } = Astro.props;
+---
+
+{isOpen && (
+  <div class="fixed inset-0 flex items-center justify-center z-50">
+    <!-- Fondo oscuro -->
+    <div
+      class="absolute inset-0 bg-black bg-opacity-50"
+      onclick={onClose}
+    ></div>
+
+    <!-- Contenido del modal -->
+    <div class="relative bg-white p-6 rounded-lg shadow-lg z-50 max-w-md w-full">
+      <button
+        class="absolute top-2 right-2 text-gray-600 hover:text-gray-800"
+        onclick={onClose}
+      >
+        ✕
+      </button>
+      <h3 class="text-xl font-bold text-gray-800 mb-4">Resumen</h3>
+      <p class="text-gray-600">{description}</p>
+    </div>
+  </div>
+)}

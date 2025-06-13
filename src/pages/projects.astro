@@ -1,0 +1,21 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+
+const pageTitle = "Alberto Andrade Ortiz | Proyectos";
+---
+
+<BaseLayout title={pageTitle}>
+  <section
+    class="container mx-auto py-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+  >
+    <ProjectCard
+      imgSrc="/images/LibreriaOnline.webp"
+      title="Libreria Online"
+      description="Librería Online es una plataforma web diseñada para facilitar la gestión y venta de libros en línea. Los usuarios pueden explorar un catálogo de libros, filtrar por categorías, ver detalles de cada título y realizar compras de manera segura. La aplicación cuenta con un panel de administración que permite gestionar el inventario, agregar nuevos libros, actualizar información y supervisar las ventas. Desarrollada con Spring Boot para el backend, Angular para el frontend y MySQL como base de datos, esta solución ofrece un rendimiento eficiente y una interfaz intuitiva para brindar una experiencia óptima tanto a los administradores como a los clientes."
+      technologies={["springboot", "angular", "mysql", "MongoDB"]}
+      buttonLink="https://github.com/"
+      status="desarrollo"
+    />
+  </section>
+</BaseLayout>

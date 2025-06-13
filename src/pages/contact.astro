@@ -1,0 +1,87 @@
+---
+// pages/contacto.astro
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContactCard from "../components/ContactCard.astro";
+
+const pageTitle = "Alberto Andrade Ortiz | Contacto";
+---
+
+<BaseLayout title={pageTitle}>
+  <section class="container mx-auto px-4 py-16 text-center">
+    <h2 class="text-4xl font-bold text-gray-800 mb-6">Contacto</h2>
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center"
+    >
+      <!-- Correo Electrónico -->
+      <ContactCard
+        iconSrc="/images/email.png"
+        title="Correo Electrónico"
+        description="Envíame un mensaje directamente."
+        buttonText="Enviar Correo"
+        buttonClass="copy-email-button"
+      />
+
+      <!-- GitHub -->
+      <ContactCard
+        iconSrc="/images/github.jpg"
+        title="GitHub"
+        description="Explora mis proyectos."
+        buttonText="Ver Perfil"
+        buttonLink="https://github.com"   
+      />
+
+      <!-- InfoJobs -->
+      <ContactCard
+        iconSrc="/images/infojobs.png"
+        title="InfoJobs"
+        description="Encuentra mi perfil profesional aquí."
+        buttonText="Ver CV"
+        buttonLink="https://www.infojobs.net/candidate/cv/view/index.xhtml"   
+      />
+    </div>
+
+    <!-- Alerta personalizada -->
+    <div
+      id="custom-alert"
+      class="hidden fixed top-20 left-1/2 transform -translate-x-1/2 bg-white text-indigo-600 px-6 py-3 rounded-lg shadow-lg opacity-0 transition-opacity duration-300 z-50"
+    >
+      Correo copiado en portapapeles
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const contactCardButton = document.querySelector(".copy-email-button");
+      const customAlert = document.getElementById("custom-alert");
+
+      if (contactCardButton && customAlert) {
+        contactCardButton.addEventListener("click", () => {
+          const email = "albertoandradeortiz@gmail.com";
+
+          navigator.clipboard
+            .writeText(email)
+            .then(() => {
+              // Mostrar la alerta
+              customAlert.classList.remove("hidden");
+              customAlert.classList.add("opacity-100");
+
+              // Ocultar la alerta después de 3 segundos
+              setTimeout(() => {
+                customAlert.classList.remove("opacity-100");
+                customAlert.classList.add("opacity-0");
+
+                // Esperar a que termine la animación antes de ocultar el elemento
+                setTimeout(() => {
+                  customAlert.classList.add("hidden");
+                }, 300); // Duración de la transición
+              }, 3000); // Tiempo visible
+            })
+            .catch((err) => {
+              console.error("Error al copiar el correo: ", err);
+              alert("No se pudo copiar el correo. Inténtalo de nuevo.");
+            });
+        });
+      }
+    });
+  </script>
+</BaseLayout>
