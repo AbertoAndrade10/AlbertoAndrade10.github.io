@@ -48,7 +48,7 @@ const technologies = [
     >
       <nav class="space-x-8 flex">
         <a
-          href="/AlbertoAndrade10.github.io/"
+          href={Astro.resolve("/")}
           class="text-gray-700 hover:text-indigo-600 transition duration-300 font-semibold relative group"
         >
           Inicio
@@ -57,7 +57,7 @@ const technologies = [
           ></span>
         </a>
         <a
-          href="about-me"
+          href={Astro.resolve("/about-me/")}
           class="text-gray-700 hover:text-indigo-600 transition duration-300 font-semibold relative group"
         >
           Sobre mí
@@ -66,7 +66,7 @@ const technologies = [
           ></span>
         </a>
         <a
-          href="projects"
+          href={Astro.resolve("/projects/")}
           class="text-gray-700 hover:text-indigo-600 transition duration-300 font-semibold relative group"
         >
           Proyectos
@@ -75,7 +75,7 @@ const technologies = [
           ></span>
         </a>
         <a
-          href="contact"
+          href={Astro.resolve("/contact/")}
           class="text-gray-700 hover:text-indigo-600 transition duration-300 font-semibold relative group"
         >
           Contacto
