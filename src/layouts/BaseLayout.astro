@@ -4,14 +4,20 @@ import TechnologyCard from "../components/TechnologyCard.astro";
 const { title } = Astro.props;
 
 const technologies = [
-  { name: "Astro", iconSrc: "/AlbertoAndrade10.github.io/images/AstroImage.png" },
-  { name: "Tailwind", iconSrc: "/AlbertoAndrade10.github.io/images/tailwindImage.png" },
+  {
+    name: "Astro",
+    iconSrc: "/AlbertoAndrade10.github.io/images/AstroImage.png",
+  },
+  {
+    name: "Tailwind",
+    iconSrc: "/AlbertoAndrade10.github.io/images/tailwindImage.png",
+  },
 ];
 ---
 
 <html lang="es">
   <head>
-   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta charset="UTF-8" />
     <title>{title}</title>
     <link
@@ -50,38 +56,39 @@ const technologies = [
       <nav class="space-x-8 flex">
         <a
           href="/AlbertoAndrade10.github.io/"
-          class="text-gray-700 hover:text-indigo-600 transition duration-300 font-semibold relative group"
+          class="text-gray-700 hover:text-indigo-600 transition duration-300 font-semibold inline-block pb-1"
         >
           Inicio
           <span
-            class="absolute bottom-0 left-0 w-0 h-[2px] bg-indigo-600 transition-all duration-300 group-hover:w-full"
+            class="absolute left-0 -bottom-0.5 w-0 h-0.5 bg-indigo-600 transition-all duration-300 group-hover:w-full"
           ></span>
         </a>
+
         <a
           href="/AlbertoAndrade10.github.io/about-me/"
-          class="text-gray-700 hover:text-indigo-600 transition duration-300 font-semibold relative group"
+          class="text-gray-700 hover:text-indigo-600 transition duration-300 font-semibold relative group inline-block pb-1"
         >
-          Sobre mí
+          <span class="relative z-10">Sobre mí</span>
           <span
-            class="absolute bottom-0 left-0 w-0 h-[2px] bg-indigo-600 transition-all duration-300 group-hover:w-full"
+            class="absolute left-0 bottom-0 h-[2px] w-0 bg-indigo-600 transition-all duration-300 group-hover:w-full"
           ></span>
         </a>
         <a
           href="/AlbertoAndrade10.github.io/projects/"
-          class="text-gray-700 hover:text-indigo-600 transition duration-300 font-semibold relative group"
+          class="text-gray-700 hover:text-indigo-600 transition duration-300 font-semibold relative group inline-block pb-1"
         >
-          Proyectos
+          <span class="relative z-10">Proyectos</span>
           <span
-            class="absolute bottom-0 left-0 w-0 h-[2px] bg-indigo-600 transition-all duration-300 group-hover:w-full"
+            class="absolute left-0 bottom-0 h-[2px] w-0 bg-indigo-600 transition-all duration-300 group-hover:w-full"
           ></span>
         </a>
         <a
           href="/AlbertoAndrade10.github.io/contact/"
-          class="text-gray-700 hover:text-indigo-600 transition duration-300 font-semibold relative group"
+          class="text-gray-700 hover:text-indigo-600 transition duration-300 font-semibold relative group inline-block pb-1"
         >
-          Contacto
+          <span class="relative z-10">Contacto</span>
           <span
-            class="absolute bottom-0 left-0 w-0 h-[2px] bg-indigo-600 transition-all duration-300 group-hover:w-full"
+            class="absolute left-0 bottom-0 h-[2px] w-0 bg-indigo-600 transition-all duration-300 group-hover:w-full"
           ></span>
         </a>
       </nav>
