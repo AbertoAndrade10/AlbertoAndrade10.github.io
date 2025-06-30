@@ -4,7 +4,7 @@ import ProjectCard from "../components/ProjectCard.astro";
 
 const pageTitle = "Alberto Andrade Ortiz | Proyectos";
 
-const technologies = [
+const technologiesLibreriaOnline = [
   {
     name: "Spring Boot",
     iconSrc: "/AlbertoAndrade10.github.io/images/springboot.jpg",
@@ -19,18 +19,36 @@ const technologies = [
     iconSrc: "/AlbertoAndrade10.github.io/images/mongo-icon.png",
   },
 ];
+
+const technologiesGEA = [
+  {
+    name: "Angular",
+    iconSrc: "/AlbertoAndrade10.github.io/images/angular.jpg",
+  },
+];
 ---
 
 <BaseLayout title={pageTitle}>
   <section
     class="container mx-auto py-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
   >
+    <!--Proyecto LibreriOnline -->
     <ProjectCard
       imgSrc="/AlbertoAndrade10.github.io/images/LibreriaOnline.webp"
       title="Libreria Online"
       description="Librería Online es una plataforma web diseñada para facilitar la gestión y venta de libros en línea. Los usuarios pueden explorar un catálogo de libros, filtrar por categorías, ver detalles de cada título y realizar compras de manera segura. La aplicación cuenta con un panel de administración que permite gestionar el inventario, agregar nuevos libros, actualizar información y supervisar las ventas. Desarrollada con Spring Boot para el backend, Angular para el frontend y MySQL junto a MongoDB como base de datos, esta solución ofrece un rendimiento eficiente y una interfaz intuitiva para brindar una experiencia óptima tanto a los administradores como a los clientes."
-      technologies={technologies}
+      technologies={technologiesLibreriaOnline}
       buttonLink="https://github.com/AbertoAndrade10/LibreriaOnline"
+      status="desarrollo"
+    />
+
+    <!--Proyecto G E A  -->
+    <ProjectCard
+      imgSrc="/AlbertoAndrade10.github.io/images/gea-post.jpg"
+      title="GEA"
+      description="GEA es un proyecto en desarrollo de un grupo musical real, diseñado para ofrecer a los usuarios una experiencia inmersiva donde podrán conocer la trayectoria de la banda, disfrutar de sus últimos lanzamientos y estar al tanto de sus próximos eventos."
+      technologies={technologiesGEA}
+      buttonLink=""
       status="desarrollo"
     />
   </section>
