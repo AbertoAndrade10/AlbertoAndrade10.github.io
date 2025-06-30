@@ -1,20 +1,16 @@
 ---
 import TechnologyCard from "./TechnologyCard.astro";
 
-const { imgSrc, title, description, buttonLink, status } = Astro.props;
+interface Technology {
+  name: string;
+  iconSrc: string;
+}
 
-// Lista de tecnologías
-const technologies = [
-  { name: "Spring Boot", iconSrc: "/AlbertoAndrade10.github.io/images/springboot.jpg" },
-  { name: "Angular", iconSrc: "/AlbertoAndrade10.github.io/images/angular.jpg" },
-  { name: "Docker", iconSrc: "/AlbertoAndrade10.github.io/images/docker.jpg" },
-  { name: "MySQL", iconSrc: "/AlbertoAndrade10.github.io/images/mysql.jpg" },
-  { name: "MongoDB", iconSrc: "/AlbertoAndrade10.github.io/images/mongo-icon.png" },
-];
+const { imgSrc, title, description, buttonLink, status, technologies } = Astro.props;
 ---
 
 <div
-  class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow transform text-left"
+  class="project-card bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow transform text-left"
 >
   <!-- Imagen y Badge de Estado -->
   <div class="relative mb-4">
@@ -38,17 +34,14 @@ const technologies = [
   <div class="p-4">
     <h3 class="text-xl font-bold text-gray-800 mb-2">{title}</h3>
 
-    <!-- Descripción  -->
-    <div id="description-container" class="text-gray-600 mb-4">
-      <p id="short-description" class="truncate max-h-12 overflow-hidden">
+    <!-- Descripción -->
+    <div class="text-gray-600 mb-4">
+      <p class="short-description truncate max-h-12 overflow-hidden">
         {description}
       </p>
-      <p id="full-description" class="hidden">
-        {description}
-      </p>
+      <p class="full-description hidden">{description}</p>
       <button
-        id="toggle-description"
-        class="text-indigo-600 hover:text-indigo-700 font-semibold cursor-pointer mt-2"
+        class="toggle-description text-indigo-600 hover:text-indigo-700 font-semibold cursor-pointer mt-2"
       >
         Ver más...
       </button>
@@ -66,40 +59,9 @@ const technologies = [
 
     <!-- Tecnologías -->
     <div class="flex flex-wrap gap-4">
-      {
-        technologies.map((tech) => (
-          <TechnologyCard name={tech.name} iconSrc={tech.iconSrc} />
-        ))
-      }
+      {technologies.map((tech: Technology) => (
+        <TechnologyCard name={tech.name} iconSrc={tech.iconSrc} />
+      ))}
     </div>
   </div>
 </div>
-
-<!-- script del comportamiento " ver mas " -->
-<script>
-  // Obtener referencias a los elementos
-  const shortDescription = document.getElementById("short-description");
-  const fullDescription = document.getElementById("full-description");
-  const toggleButton = document.getElementById("toggle-description");
-
-  // Verificar que todos los elementos existen antes de continuar
-  if (shortDescription && fullDescription && toggleButton) {
-    toggleButton.addEventListener("click", () => {
-      if (fullDescription.classList.contains("hidden")) {
-        // Mostrar descripción completa
-        shortDescription.classList.add("hidden");
-        fullDescription.classList.remove("hidden");
-        toggleButton.textContent = "Mostrar menos...";
-      } else {
-        // Mostrar descripción comprimida
-        fullDescription.classList.add("hidden");
-        shortDescription.classList.remove("hidden");
-        toggleButton.textContent = "Mostrar más...";
-      }
-    });
-  } else {
-    console.error(
-      "Uno o más elementos requeridos no se encontraron en el DOM: 'short-description', 'full-description', 'toggle-description'."
-    );
-  }
-</script>
